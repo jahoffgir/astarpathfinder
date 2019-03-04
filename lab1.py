@@ -19,6 +19,49 @@ FOOT_PATH = "#000000 (0,0,0)"
 OUT_OF_BOUND = "#CD0065 (205,0,101)"
 
 
+class Node:
+    """
+    Node that represents a single position
+    """
+    def __init__(self, x, y, parent):
+        self.x = x
+        self.y = y
+        self.parent = parent
+
+
+def g_score():
+    """
+    Base score of the node and is simply the incremental cost of moving from
+    the start node to this node
+    :return:
+    """
+    pass
+
+
+def h_score():
+    """
+    Computationally estimate of the distance between each node and the goal
+    :return:
+    """
+    pass
+
+def f_score():
+    """
+    Score is simply the addition of g and h scores and represents the total
+    cost of the path via the current node
+    :return:
+    """
+
+    return h_score() + g_score()
+
+
+def a_star():
+    # holds potential best path nodes that have not yet been considered
+    open_list = []
+    # contains all nodes that have already been considered/visited
+    closed_list = []
+
+
 def main():
     try:
         terrain_image = sys.argv[1]
@@ -26,7 +69,7 @@ def main():
         path_file = sys.argv[3]
         season = sys.argv[4]
         output_image_filename = sys.argv[5]
-
+        print(Image)
     except Exception:
         print("No bueno!")
 
